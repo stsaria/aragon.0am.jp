@@ -11,7 +11,7 @@
         <?php include "header.html" ?>
         <main>
             <h2>Chat</h2>
-            <a href="#post">Go to the Submission section</a>
+            <a href="#post">Go to the Post section</a>
             <?php
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
                     writeData();
