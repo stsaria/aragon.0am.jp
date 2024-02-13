@@ -18,15 +18,28 @@
                 }
                 print(readData());
                 function readData(){
-                    $chat_file = '../data/chat-en.txt';
+                    $chat_file = '../data/chat-en.csv';
+                    $rows = [];
                     $data = '';
                     $fp = fopen($chat_file, 'rb');
                     if ($fp){
                         if (flock($fp, LOCK_SH)){
-                            while (!feof($fp)) {
-                                $buffer = fgets($fp);
-                                $data = $data.$buffer;
+                            while ($row = fgetcsv($fp)) {
+                                $rows[] = $row;
                             }
+                            if ($rows){
+                                if (count($rows) >= 30){$rows = array_slice($rows, -30);}
+                            }
+                            if (!empty($rows)): ?>
+                                <ul>
+                            <?php foreach ($rows as $row): ?>
+                                <li><?=$row[0]?>|<?=$row[1]?></li>
+                            <?php endforeach; ?>
+                                </ul>
+                            <?php else: ?>
+                                
+                            <?php endif; ?>
+                            <?php
                             flock($fp, LOCK_UN);
                         }else{
                             echo '<script>alert("File lock failed.");</script>';
@@ -36,16 +49,16 @@
                     return $data;
                 }
                 function writeData(){
-                    $chat_file = '../data/chat-en.txt';
+                    $chat_file = '../data/chat-en.csv';
                     $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
+                    if ($name === ""){$name = "Anonymous";}
                     $contents = htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8');
-                    $contents = nl2br($contents);
-                    $data = "<hr>\r\n<p>".$name."|".$contents."</p>\r\n";
+                    if ($contents === ""){return;}
                     $fp = fopen($chat_file, 'ab');
                     if ($fp){
                         if (flock($fp, LOCK_EX)){
-                            if (fwrite($fp,  $data) === FALSE){
-                                echo '<script>alert("File lock failed.");</script>';
+                            if (fputcsv($fp, [$name, $contents]) === FALSE){
+                                echo '<script>alert("File write failed.");</script>';
                             }
                             flock($fp, LOCK_UN);
                         }else{
@@ -66,8 +79,9 @@
             <span>Name : </span><input type="text" name="name"></br></br>
             <span>Contents</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
-            <input type="submit" name="sbm_btn1" value="Post">
+            <input type="submit" name="sbm_btn" value="Post">
             </form>
+            <a href="../data/chat-en.csv">If you want to see all the chats</a>
         </main>
         <?php include "footer.html" ?>
     </body>
