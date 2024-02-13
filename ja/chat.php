@@ -83,6 +83,6 @@
             </form>
             <a href="../data/chat-ja.csv">もしすべてのチャットを見たいなら</a>
         </main>
-        <?php include "footer.html" ?>
+        <?php include "../footer.html" ?>
     </body>
 </html>

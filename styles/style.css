@@ -20,12 +20,10 @@ footer{
 main{
     display: inline-block;
     vertical-align: top;
-    align-items: center;
     margin-left: 1%;
 }
 
 .minecraft_screenshot{
     text-align: right;
-    align-items: center;
     width: 25%;
 }
