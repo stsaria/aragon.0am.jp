@@ -44,9 +44,9 @@
         else if ($name === ""){$name = "Anonymous/匿名";}
         $contents = htmlspecialchars($_GET['contents'], ENT_QUOTES, 'UTF-8');
         if ($contents === ""){return;}
-        if (strlen($contents) >= 3){
-            if ($contents[0].$contents[1] == "//" && is_numeric($contents[2])){
-                $contents = "<a href=#".$contents[2].">//".$contents[2]."</a>".str_replace("//".$contents[2], '', $contents);
+        if (strlen($contents) >= 4){
+            if ($contents[0].$contents[1].$contents[2] == "///" && is_numeric($contents[3])){
+                $contents = "<a href=#".$contents[3].">//".$contents[3]."</a>".str_replace("///".$contents[3], '', $contents);
             }
         }
         $fp = fopen($chat_file, 'rb');

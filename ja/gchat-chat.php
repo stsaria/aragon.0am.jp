@@ -27,7 +27,7 @@
             <form method="GET" action="">
             <span>スレッド : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
             <span>名前 : </span><input type="text" name="name"></br></br>
-            <span>内容("//1 "のように特定のレスポンスを指定することができます)</br></span>
+            <span>内容("///1"のように特定のレスポンスを指定することができます)</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
             <input type="submit" name="sbm_btn" value="投稿">
             </form>
