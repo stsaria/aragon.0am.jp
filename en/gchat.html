@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="../img/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../styles/style.css" rel="stylesheet" />
+        <title>Saadi/Etc</title>
+    </head>
+    <body>
+        <?php include "../header.html" ?>
+        <main>
+            <h2>Global Chat</h2>
+            <hr>
+            <h3>Thread list</h3>
+            <?php include "../cgi-bin/gchatlist.php" ?>
+            <hr>
+            <h3>Make thread</h3>
+            <form method="GET" action="../cgi-bin/gchatadd">
+            <span>Thread name:</span><input type="text" name="title"><input type="submit" name="sbm_btn" value="Make">
+            </form>
+        </main>
+        <?php include "../footer.html" ?>
+    </body>
+</html>

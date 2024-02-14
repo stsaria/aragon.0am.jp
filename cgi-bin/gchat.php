@@ -1,6 +1,7 @@
 <?php
     ob_start();
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $chat_file = "../data/chat-".$_GET['thread'].".csv";
+    if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['name']) && isset($_GET['thread'])){
         writeData();
     }
     print(readData());
@@ -13,9 +14,6 @@
             if (flock($fp, LOCK_SH)){
                 while ($row = fgetcsv($fp)) {
                     $rows[] = $row;
-                }
-                if ($rows){
-                    if (count($rows) >= 30){$rows = array_slice($rows, -30);}
                 }
                 if (!empty($rows)): ?>
                     <ul>
@@ -38,10 +36,10 @@
     }
     function writeData(){
         global $chat_file;
-        $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-        if ($name === "Anonymous"){$name = "Anonymous@Fake";}
-        else if ($name === ""){$name = "Anonymous";}
-        $contents = htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8');
+        $name = htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');
+        if ($name === "Anonymous"){$name = "Anonymous/匿名@Fake";}
+        else if ($name === ""){$name = "Anonymous/匿名";}
+        $contents = htmlspecialchars($_GET['contents'], ENT_QUOTES, 'UTF-8');
         if ($contents === ""){return;}
         $fp = fopen($chat_file, 'ab');
         if ($fp){
@@ -56,12 +54,8 @@
         }
         fclose($fp);
     }
-    if($_SERVER["REQUEST_METHOD"]=="POST" && strlen(explode("/",$chat_file)[2]) > 11){
-        header("location: gchat-chat?thread=".str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]))."#post");
-        exit;
-    }
-    if($_SERVER["REQUEST_METHOD"]=="POST"){
-        header("location: ".$_SERVER['HTTP_REFERER']."#post");
+    if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['thread']) && isset($_GET['name'])){
+        header("location: ?thread=".$_GET['thread'].str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]))."#post");
         exit;
     }
 ?>
