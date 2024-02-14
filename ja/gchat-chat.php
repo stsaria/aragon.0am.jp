@@ -23,7 +23,7 @@
             <span>名前 : </span><input type="text" name="name"></br></br>
             <span>内容</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
-            <input type="submit" name="sbm_btn" value="Post">
+            <input type="submit" name="sbm_btn" value="投稿">
             </form>
             <a href="../data/chat-<?=$_GET['thread']?>.csv">もしすべてのチャットを見たいなら</a>
         </main>
