@@ -52,7 +52,7 @@
                 function writeData(){
                     $chat_file = '../data/chat-ja.csv';
                     $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-                    if ($name === "Anonymous"){$name = "名が無き者@※実際はあります";}
+                    if ($name === "名が無き者"){$name = "名が無き者@※実際はあります";}
                     else if ($name === ""){$name = "名が無き者";}
                     $contents = htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8');
                     if ($contents === ""){return;}
