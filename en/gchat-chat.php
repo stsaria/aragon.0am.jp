@@ -21,7 +21,7 @@
             <form method="GET" action="">
             <span>Thread : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
             <span>Name : </span><input type="text" name="name"></br></br>
-            <span>Contents</br></span>
+            <span>Contents(You can specify a specific response, such as "//1")</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
             <input type="submit" name="sbm_btn" value="Post">
             </form>
