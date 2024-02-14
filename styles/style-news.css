@@ -1,6 +1,6 @@
 .news{
     img, video{
-        width: 20%;
+        width: 30%;
         margin-top: 0.5%;
     }
 
@@ -10,5 +10,8 @@
             margin-top: 0.5%;
         }
     }
-    pre{white-space: pre-wrap;}
+    pre{
+        white-space: pre-wrap;
+        font-size: x-large;
+    }
 }
