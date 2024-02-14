@@ -7,6 +7,7 @@
     print(readData());
     function readData(){
         global $chat_file;
+        $num_response = 0;
         $rows = [];
         $data = '';
         $fp = fopen($chat_file, 'rb');
@@ -18,7 +19,8 @@
                 if (!empty($rows)): ?>
                     <ul>
                 <?php foreach ($rows as $row): ?>
-                    <li><?=$row[2]?>|ID:<?=$row[3]?></br>
+                    <?php $num_response++ ?>
+                    <li id="<?=$num_response?>"><?=$num_response?>|<?=$row[2]?>|ID:<?=$row[3]?></br>
                     <?=$row[0]?>|<?=$row[1]?></li>
                 <?php endforeach; ?>
                     </ul>
@@ -36,11 +38,43 @@
     }
     function writeData(){
         global $chat_file;
+        $num_response = 0;
         $name = htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');
         if ($name === "Anonymous"){$name = "Anonymous/匿名@Fake";}
         else if ($name === ""){$name = "Anonymous/匿名";}
         $contents = htmlspecialchars($_GET['contents'], ENT_QUOTES, 'UTF-8');
         if ($contents === ""){return;}
+        if (strlen($contents) >= 3){
+            if ($contents[0].$contents[1] == "//" && is_numeric($contents[2])){
+                $contents = "<a href=#".$contents[2].">//".$contents[2]."</a>".str_replace("//".$contents[2], '', $contents);
+            }
+        }
+        $fp = fopen($chat_file, 'rb');
+        if ($fp){
+            if (flock($fp, LOCK_SH)){
+                while ($row = fgetcsv($fp)){
+                    $rows[] = $row;
+                }
+                if (!empty($rows)): ?>
+                    <ul>
+                <?php foreach ($rows as $row): ?>
+                    <?php $num_response++ ?>
+                <?php endforeach; ?>
+                    
+                <?php else: ?>
+                    
+                <?php endif; ?>
+                <?php
+                flock($fp, LOCK_UN);
+            }else{
+                echo '<script>alert("File lock failed.");</script>';
+            }
+        }
+        if($num_response >= 200){
+            echo '<script>alert("Response > 200");</script>';
+            return;
+        }
+
         $fp = fopen($chat_file, 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
