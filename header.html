@@ -20,13 +20,8 @@
     <nav class="nav">
         <ul class="menus">
             <input type="button" value="Ja/En" onclick="ChangeLanguage();"/>
-            <script>
-                if (!window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches) {
-                    document.write("</br>");
-                }
-            </script>
-            <button class="menu"><a href="chat">Chat</a></button>
-            <button class="menu"><a href="etc">Etc</a></button>
+            <input type="button" value="Chat" onclick='window.location.href = "chat";'/>
+            <input type="button" value="Etc" onclick='window.location.href = "etc";'/>
         </ul>
     </nav>
     <h1>Saadi</h1>
