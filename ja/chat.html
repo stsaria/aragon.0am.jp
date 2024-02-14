@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="../img/favicon.ico">
+        <meta name="viewport" content="width=device-width">
+        <link href="../styles/style.css" rel="stylesheet" />
+        <title>Saadi/Chat</title>
+    </head>
+    <body>
+        <?php include "../header.html" ?>
+        <main>
+            <h2>チャット</h2>
+            <a href="#post">投稿欄に移動</a>
+            <?php
+                $chat_file = '../data/chat-ja.csv';
+                include "../cgi-bin/chat.php"
+            ?>
+            <hr>
+            <h2 id="post">投稿</h2>
+            <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
+            <span>名前 : </span><input type="text" name="name"></br></br>
+            <span>内容</br></span>
+            <textarea name="contents" rows="8" cols="40"></textarea></br>
+            <input type="submit" name="sbm_btn" value="投稿">
+            </form>
+            <a href="../data/chat-ja.csv">もしすべてのチャットを見たいなら</a>
+        </main>
+        <?php include "../footer.html" ?>
+    </body>
+</html>
