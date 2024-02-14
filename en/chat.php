@@ -52,7 +52,8 @@
                 function writeData(){
                     $chat_file = '../data/chat-en.csv';
                     $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-                    if ($name === ""){$name = "Anonymous";}
+                    if ($name === "Anonymous"){$name = "Anonymous@Fake";}
+                    else if ($name === ""){$name = "Anonymous";}
                     $contents = htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8');
                     if ($contents === ""){return;}
                     $fp = fopen($chat_file, 'ab');
