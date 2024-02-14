@@ -25,7 +25,6 @@
             <textarea name="contents" rows="8" cols="40"></textarea></br>
             <input type="submit" name="sbm_btn" value="投稿">
             </form>
-            <a href="../data/chat-<?=$_GET['thread']?>.csv">もしすべてのチャットを見たいなら</a>
         </main>
         <?php include "../footer.html" ?>
     </body>

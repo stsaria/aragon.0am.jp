@@ -25,7 +25,6 @@
             <textarea name="contents" rows="8" cols="40"></textarea></br>
             <input type="submit" name="sbm_btn" value="Post">
             </form>
-            <a href="../data/chat-<?=$_GET['thread']?>.csv">If you want to see all the chats</a>
         </main>
         <?php include "../footer.html" ?>
     </body>
