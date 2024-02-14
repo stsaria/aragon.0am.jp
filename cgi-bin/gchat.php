@@ -40,7 +40,7 @@
         global $chat_file;
         $num_response = 0;
         $name = htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');
-        if ($name === "Anonymous"){$name = "Anonymous/匿名@Fake";}
+        if ($name === "Anonymous/匿名"){$name = "Anonymous/匿名@Fake/偽物";}
         else if ($name === ""){$name = "Anonymous/匿名";}
         $contents = htmlspecialchars($_GET['contents'], ENT_QUOTES, 'UTF-8');
         if ($contents === ""){return;}
