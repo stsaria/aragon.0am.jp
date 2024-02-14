@@ -34,7 +34,8 @@
                             if (!empty($rows)): ?>
                                 <ul>
                             <?php foreach ($rows as $row): ?>
-                                <li><?=$row[0]?>|<?=$row[1]?></li>
+                                <li><?=$row[2]?>|ID:<?=$row[3]?></br>
+                                <?=$row[0]?>|<?=$row[1]?></li>
                             <?php endforeach; ?>
                                 </ul>
                             <?php else: ?>
@@ -59,7 +60,7 @@
                     $fp = fopen($chat_file, 'ab');
                     if ($fp){
                         if (flock($fp, LOCK_EX)){
-                            if (fputcsv($fp, [$name, $contents]) === FALSE){
+                            if (fputcsv($fp, [$name, $contents, date("Y/m/d H:i"), hash("fnv1a32", str_replace('.', '', $_SERVER['REMOTE_ADDR']))]) === FALSE){
                                 echo '<script>alert("File write failed.");</script>';
                             }
                             flock($fp, LOCK_UN);
