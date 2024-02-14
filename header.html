@@ -1,0 +1,33 @@
+<header>
+    <script language="javascript" type="text/javascript">
+        function ChangeLanguage() {
+            url_redirect = ""
+            x = document.location.pathname.split("/");
+            if (x[x.length-1] == ""){x.pop()}
+            if (x[x.length-2] == "en" || x[x.length-1] == "en"){url_redirect = "../ja/";}
+            else {url_redirect = "../en/";}
+            if (!(x[x.length-1] == "en" || x[x.length-1] == "ja")){
+                url_redirect = url_redirect + x[x.length-1]}
+            window.location.href = url_redirect;
+        }
+    </script>
+
+    <div class="title">
+        <a href="./">
+            <img src="../img/logo.png" alt="Saria-Web Logo"/>
+        </a>
+    </div>
+    <nav class="nav">
+        <ul class="menus">
+            <input type="button" value="Ja/En" onclick="ChangeLanguage();"/>
+            <script>
+                if (!window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches) {
+                    document.write("</br>");
+                }
+            </script>
+            <button class="menu"><a href="chat">Chat</a></button>
+            <button class="menu"><a href="etc">Etc</a></button>
+        </ul>
+    </nav>
+    <h1>Saadi</h1>
+</header>

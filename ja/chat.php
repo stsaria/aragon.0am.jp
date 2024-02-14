@@ -8,7 +8,7 @@
         <title>Saadi/Chat</title>
     </head>
     <body>
-        <?php include "header.html" ?>
+        <?php include "../header.html" ?>
         <main>
             <h2>チャット</h2>
             <a href="#post">投稿欄に移動</a>

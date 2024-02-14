@@ -8,7 +8,7 @@
         <title>Saadi/Chat</title>
     </head>
     <body>
-        <?php include "header.html" ?>
+        <?php include "../header.html" ?>
         <main>
             <h2>Chat</h2>
             <a href="#post">Go to the Post section</a>

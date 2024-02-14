@@ -8,19 +8,21 @@
         <title>Saadi</title>
     </head>
     <body>
-        <?php include "header.html" ?>
-        <img class="minecraft_screenshot" width=% src="../img/screenshot-1.png" alt="Saadi now situation (February)">
+        <?php include "../header.html" ?>
         <main>
-            <h2>Welcome to Saadi's website!</h2>
-            <p>Saadi is located in <a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a> Morocco and was created in October 2023.</p>
-            Saadi Discord server is <a href="https://discord.gg/q9MnsbNPkG">here</a>
-            <p style="color: red;">On January 7, Saadi and Aragon announced that they are declaring war on Mongolia!</br>
-            We have declared Mongolia an enemy nation and will henceforth oppose it by any means necessary. </p>
-            <p>For more information on the Mongolian declaration of war, please see News.</p>
+            <img class="minecraft_screenshot" width=% src="../img/screenshot-1.png" alt="Saadi now situation (February)">
+            <div class="saadi_description">
+                <h2>Welcome to Saadi's website!</h2>
+                <p>Saadi is located in <a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a> Morocco and was created in October 2023.</p>
+                Saadi Discord server is <a href="https://discord.gg/q9MnsbNPkG">here</a>
+                <p style="color: red;">On January 7, Saadi and Aragon announced that they are declaring war on Mongolia!</br>
+                We have declared Mongolia an enemy nation and will henceforth oppose it by any means necessary. </p>
+                <p>For more information on the Mongolian declaration of war, please see News.</p>
+            </div>
+            <hr>
+            <h3>News</h3>
+            <?php include "news.html" ?>
         </main>
-        <hr>
-        <h3>News</h3>
-        <?php include "news.html" ?>
         <?php include "../footer.html" ?>
     </body>
 </html>
