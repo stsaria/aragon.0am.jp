@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_GET["thread"])){
+        header("Location: gchat");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
