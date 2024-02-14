@@ -13,6 +13,7 @@
             <h2>Chat</h2>
             <a href="#post">Go to the Post section</a>
             <?php
+                ob_start();
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
                     writeData();
                 }

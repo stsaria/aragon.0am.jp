@@ -13,10 +13,11 @@
             <h2>チャット</h2>
             <a href="#post">投稿欄に移動</a>
             <?php
+                ob_start();
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
                     writeData();
                 }
-                print(readData());
+                echo readData();
                 function readData(){
                     $chat_file = '../data/chat-ja.csv';
                     $rows = [];
@@ -70,7 +71,6 @@
             // リロード対策
             if($_SERVER["REQUEST_METHOD"]=="POST"){
                 header("location: #post");
-                exit;
             }
             ?>
             <hr>
