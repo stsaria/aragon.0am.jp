@@ -27,13 +27,24 @@
             ?>
             <hr>
             <h2 id="post">投稿</h2>
-            <form method="GET" action="">
+            <form method="GET", name="post-response">
             <span>スレッド : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
-            <span>名前 : </span><input type="text" name="name"></br></br>
+            <span>名前 : </span><input type="text" name="name", id="name"></br></br>
             <span>内容("///1"のように特定のレスポンスを指定することができます)</br></span>
-            <textarea name="contents" rows="8" cols="40"></textarea></br>
-            <input type="submit" name="sbm_btn" value="投稿">
+            <textarea name="contents" rows="8" cols="40", value=""></textarea></br>
+            <input type="submit" id="sbm_btn" oneclick="saveName();" value="投稿">
             </form>
+            <script>
+                var name = sessionStorage.getItem("name");
+                if (name != "null"){document.getElementById("name").value = name;}
+                $(document).ready(function(){
+                    $('#sbm_btn').click(function(){
+                        var name = $('#name').val();
+                        console.log(name);
+                        sessionStorage.setItem("name", name);
+                    });
+                });
+            </script>
             <hr>
             <h3>このスレッドを削除する</h3>
             <p>※スレッドを削除すると、二度と元に戻すことはできません。</br>

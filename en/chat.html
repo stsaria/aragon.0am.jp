@@ -19,11 +19,22 @@
             <hr>
             <h2 id="post">Post</h2>
             <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
-            <span>Name : </span><input type="text" name="name"></br></br>
+            <span>Name : </span><input type="text" name="name" id="name"></br></br>
             <span>Contents</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
-            <input type="submit" name="sbm_btn" value="Post">
+            <input type="submit" id="sbm_btn" value="Post">
             </form>
+            <script>
+                var name = sessionStorage.getItem("name");
+                if (name != "null"){document.getElementById("name").value = name;}
+                $(document).ready(function(){
+                    $('#sbm_btn').click(function(){
+                        var name = $('#name').val();
+                        console.log(name);
+                        sessionStorage.setItem("name", name);
+                    });
+                });
+            </script>
             <a href="../data/chat-en.csv">If you want to see all the chats</a>
         </main>
         <?php include "../footer.html" ?>

@@ -19,11 +19,22 @@
             <hr>
             <h2 id="post">投稿</h2>
             <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
-            <span>名前 : </span><input type="text" name="name"></br></br>
+            <span>名前 : </span><input type="text" name="name" id="name"></br></br>
             <span>内容</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
-            <input type="submit" name="sbm_btn" value="投稿">
+            <input type="submit" id="sbm_btn" value="投稿">
             </form>
+            <script>
+                var name = sessionStorage.getItem("name");
+                if (name != "null"){document.getElementById("name").value = name;}
+                $(document).ready(function(){
+                    $('#sbm_btn').click(function(){
+                        var name = $('#name').val();
+                        console.log(name);
+                        sessionStorage.setItem("name", name);
+                    });
+                });
+            </script>
             <a href="../data/chat-ja.csv">もしすべてのチャットを見たいなら</a>
         </main>
         <?php include "../footer.html" ?>

@@ -29,11 +29,22 @@
             <h2 id="post">Post</h2>
             <form method="GET" action="">
             <span>Thread : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
-            <span>Name : </span><input type="text" name="name"></br></br>
+            <span>Name : </span><input type="text" name="name" id="name"></br></br>
             <span>Contents(You can specify a specific response, such as "///1")</br></span>
             <textarea name="contents" rows="8" cols="40"></textarea></br>
-            <input type="submit" name="sbm_btn" value="Post">
+            <input type="submit" id="sbm_btn" value="Post">
             </form>
+            <script>
+                var name = sessionStorage.getItem("name");
+                if (name != "null"){document.getElementById("name").value = name;}
+                $(document).ready(function(){
+                    $('#sbm_btn').click(function(){
+                        var name = $('#name').val();
+                        console.log(name);
+                        sessionStorage.setItem("name", name);
+                    });
+                });
+            </script>
             <hr>
             <h3>Delete this thread</h3>
             <p>*Once a thread is deleted, it can never be restored.</br>
