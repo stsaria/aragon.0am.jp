@@ -2,6 +2,9 @@
     if(!isset($_GET["thread"])){
         header("Location: gchat");
         exit;
+    } else if (!file_exists("../data/chat-".$_GET['thread'].".csv")){
+        header("Location: gchat");
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -31,6 +34,11 @@
             <textarea name="contents" rows="8" cols="40"></textarea></br>
             <input type="submit" name="sbm_btn" value="投稿">
             </form>
+            <hr>
+            <h3>このスレッドを削除する</h3>
+            <p>※スレッドを削除すると、二度と元に戻すことはできません。</br>
+            スレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</p>
+            <a href="../cgi-bin/gchatrm.php?thread=<?=$_GET['thread']?>"><button>削除</button></a>
         </main>
         <?php include "../footer.html" ?>
     </body>

@@ -2,6 +2,9 @@
     if(!isset($_GET["thread"])){
         header("Location: gchat");
         exit;
+    } else if (!file_exists("../data/chat-".$_GET['thread'].".csv")){
+        header("Location: gchat");
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -31,6 +34,11 @@
             <textarea name="contents" rows="8" cols="40"></textarea></br>
             <input type="submit" name="sbm_btn" value="Post">
             </form>
+            <hr>
+            <h3>Delete this thread</h3>
+            <p>*Once a thread is deleted, it can never be restored.</br>
+            Threads can only be deleted if the IP at the time of creation and the current IP are the same.</p>
+            <a href="../cgi-bin/gchatrm.php?thread=<?=$_GET['thread']?>"><button>Delete</button></a>
         </main>
         <?php include "../footer.html" ?>
     </body>

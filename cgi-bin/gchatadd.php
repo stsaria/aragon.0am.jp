@@ -20,7 +20,7 @@
     $fp = fopen("../data/chatlist.csv", 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
-                if (fputcsv($fp, [$filename, $_GET['title'], date("Y/m/d H:i")]) === FALSE){
+                if (fputcsv($fp, [$filename, $_GET['title'], date("Y/m/d H:i"), hash("fnv1a32", str_replace('.', '', $_SERVER['REMOTE_ADDR']))]) === FALSE){
                     echo '<script>alert("File write failed.");</script>';
                 }
                 flock($fp, LOCK_UN);
