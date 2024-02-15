@@ -48,7 +48,13 @@
         if ($contents === ""){return;}
         if (strlen($contents) >= 4){
             if ($contents[0].$contents[1].$contents[2] == "///" && is_numeric($contents[3])){
-                $contents = "<a href=#".$contents[3].">///".$contents[3]."</a>".str_replace("///".$contents[3], '', $contents);
+                $resnum = "";
+                $a_contents = "<a href=#reSnuM>///".$contents[3];
+                $resnum = $contents[3];
+                if (is_numeric($contents[4])){$a_contents = $a_contents.$contents[4]; $resnum = $resnum.$contents[4];}
+                if (is_numeric($contents[5])){$a_contents = $a_contents.$contents[5]; $resnum = $resnum.$contents[5];}
+                $a_contents = $a_contents."</a>".str_replace("///".$resnum, '', $contents);
+                $contents = str_replace("reSnuM", $resnum, $a_contents);
             }
         }
         $fp = fopen($chat_file, 'rb');
