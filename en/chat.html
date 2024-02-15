@@ -27,15 +27,15 @@
             <input type="submit" id="sbm_btn" value="Post">
             </form>
             <script>
-                var name = sessionStorage.getItem("name");
+                var name = localStorage.getItem("name");
                 if (name != "null"){document.getElementById("name").value = name;}
                 $(document).ready(function(){
                     $('#sbm_btn').click(function(){
                         var name = $('#name').val();
-                        sessionStorage.setItem("name", name);
+                        localStorage.setItem("name", name);
                     });
                 });
-            </script>]
+            </script>
             <a href="?all=true">Show all (temporary)</a></br>
             <a href="../data/chat-en.csv">Chat Download(csv)</a>
         </main>

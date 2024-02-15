@@ -39,12 +39,12 @@
             <input type="submit" id="sbm_btn" value="Post">
             </form>
             <script>
-                var name = sessionStorage.getItem("name");
+                var name = localStorage.getItem("name");
                 if (name != "null"){document.getElementById("name").value = name;}
                 $(document).ready(function(){
                     $('#sbm_btn').click(function(){
                         var name = $('#name').val();
-                        sessionStorage.setItem("name", name);
+                        localStorage.setItem("name", name);
                     });
                 });
             </script>
