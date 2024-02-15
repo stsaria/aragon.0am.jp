@@ -32,7 +32,9 @@
             <form method="GET", name="post-response">
             <span>スレッド : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
             <span>名前 : </span><input type="text" name="name", id="name"></br></br>
-            <span>内容("///1"のように特定のレスポンスを指定することができます)</br></span>
+            <span>内容</br>
+            "///1"のように特定のレスポンスを指定することができます。</br>
+            (文の初めに書く必要があります)</br></span>
             <textarea name="contents" rows="8" cols="40", value=""></textarea></br>
             <input type="submit" id="sbm_btn" oneclick="saveName();" value="投稿">
             </form>
