@@ -17,10 +17,11 @@
         continue;
     }
 
+    $title = htmlspecialchars($_GET['title'], ENT_QUOTES, 'UTF-8');
     $fp = fopen("../log/gchat.log", 'ab');
     if ($fp){
         if (flock($fp, LOCK_EX)){
-            if (fwrite($fp, "add,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".str_replace("'", "\"", $_GET['title'])."'\n") === FALSE){
+            if (fwrite($fp, "add,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".str_replace("'", "\"", $title)."'\n") === FALSE){
                 echo '<script>alert("File write failed.");</script>';
             }
             flock($fp, LOCK_UN);
@@ -33,7 +34,7 @@
     $fp = fopen("../data/chatlist.csv", 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
-                if (fputcsv($fp, [$filename, $_GET['title'], date("Y/m/d H:i"), hash("fnv1a32", $_SERVER['REMOTE_ADDR'])]) === FALSE){
+                if (fputcsv($fp, [$filename, str_replace("'", "\"", $title), date("Y/m/d H:i"), hash("fnv1a32", $_SERVER['REMOTE_ADDR'])]) === FALSE){
                     echo '<script>alert("File write failed.");</script>';
                     exit;
                 }
