@@ -21,9 +21,9 @@
             <hr>
             <h2 id="post">投稿</h2>
             <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
-            <span>名前 : </span><input type="text" name="name" id="name"></br></br>
-            <span>内容</br></span>
-            <textarea name="contents" rows="8" cols="40"></textarea></br>
+            <span>名前 : </span><input type="text" name="name" id="name" maxlength="10"></br></br>
+            <span>内容(最大5行まで)</br></span>
+            <textarea name="contents" rows="8" cols="40" maxlength="70"></textarea></br>
             <input type="submit" id="sbm_btn" value="投稿">
             </form>
             <script>

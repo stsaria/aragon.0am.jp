@@ -43,7 +43,10 @@
         $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
         if ($name === "Anonymous"){$name = "Anonymous@Fake";}
         else if ($name === ""){$name = "Anonymous";}
-        $contents = htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8');
+        $contents = nl2br(htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8'));
+        $contents = str_replace("<br>", "", $contents);
+        if ($contents == ""){return;}
+        else if (count(explode("/",$contents)) > 5){return;}
         if ($contents === ""){return;}
 
         $fp = fopen("../log/chat-".str_replace("chat-", "", (str_replace(".csv", "", end(explode("/", $chat_file))))).".log", 'ab');

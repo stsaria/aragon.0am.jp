@@ -44,8 +44,10 @@
         $name = htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');
         if ($name === "Anonymous/匿名"){$name = "Anonymous/匿名@Fake/偽物";}
         else if ($name === ""){$name = "Anonymous/匿名";}
-        $contents = htmlspecialchars($_GET['contents'], ENT_QUOTES, 'UTF-8');
-        if ($contents === ""){return;}
+        $contents = nl2br(htmlspecialchars($_GET['contents'], ENT_QUOTES, 'UTF-8'));
+        $contents = str_replace("<br>", "", $contents);
+        if ($contents == ""){return;}
+        else if (count(explode("/",$contents)) > 5){return;}
         if (strlen($contents) >= 4){
             if ($contents[0].$contents[1].$contents[2] == "///" && is_numeric($contents[3])){
                 $resnum = "";

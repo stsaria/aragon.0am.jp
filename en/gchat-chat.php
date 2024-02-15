@@ -31,11 +31,11 @@
             <h2 id="post">Post</h2>
             <form method="GET" action="">
             <span>Thread : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
-            <span>Name : </span><input type="text" name="name" id="name"></br></br>
-            <span>Contents</br>
+            <span>Name : </span><input type="text" name="name" id="name" maxlength="10"></br></br>
+            <span>Contents(Up to 5 lines)</br>
             You can specify a specific response, such as "///1".</br>
             (Must be written at the beginning of the sentence)</br></span>
-            <textarea name="contents" rows="8" cols="40"></textarea></br>
+            <textarea name="contents" rows="8" cols="40" maxlength="70"></textarea></br>
             <input type="submit" id="sbm_btn" value="Post">
             </form>
             <script>
