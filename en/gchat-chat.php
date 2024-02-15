@@ -11,7 +11,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        </script src="https://code.jquery.com/jquery-3.5.1.min.js">
+        </script src="http://code.jquery.com/jquery-1.8.2.min.js">
         <link rel="icon" href="../img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../styles/style.css" rel="stylesheet" />
