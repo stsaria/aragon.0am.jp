@@ -32,6 +32,7 @@
                 flock($fp, LOCK_UN);
             }else{
                 echo '<script>alert("File lock failed.");</script>';
+                exit;
             }
         }
         fclose($fp);
@@ -69,11 +70,12 @@
                 flock($fp, LOCK_UN);
             }else{
                 echo '<script>alert("File lock failed.");</script>';
+                exit;
             }
         }
         if($num_response >= 200){
             echo '<script>alert("Response > 200");</script>';
-            return;
+            exit;
         }
 
         $fp = fopen("../log/gchat.log", 'ab');
@@ -82,10 +84,12 @@
                 if (fwrite($fp, "post,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."','".
                 str_replace("'", "\"", $name)."','".str_replace("'", "\"", $contents)."'\n") === FALSE){
                     echo '<script>alert("File write failed.");</script>';
+                    exit;
                 }
                 flock($fp, LOCK_UN);
             }else{
                 echo '<script>alert("File lock failed.");</script>';
+                exit;
             }
         }
         
@@ -94,10 +98,12 @@
             if (flock($fp, LOCK_EX)){
                 if (fputcsv($fp, [$name, $contents, date("Y/m/d H:i"), hash("fnv1a32", str_replace('.', '', $_SERVER['REMOTE_ADDR']))]) === FALSE){
                     echo '<script>alert("File write failed.");</script>';
+                    exit;
                 }
                 flock($fp, LOCK_UN);
             }else{
                 echo '<script>alert("File lock failed.");</script>';
+                exit;
             }
         }
         fclose($fp);
