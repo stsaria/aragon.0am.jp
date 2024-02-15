@@ -1,5 +1,6 @@
 <?php
     ob_start();
+    date_default_timezone_set('Asia/Tokyo');
     $chat_file = "../data/chat-".$_GET['thread'].".csv";
     if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['name']) && isset($_GET['thread'])){
         writeData();
@@ -75,6 +76,19 @@
             return;
         }
 
+        $fp = fopen("../log/gchat.log", 'ab');
+        if ($fp){
+            if (flock($fp, LOCK_EX)){
+                if (fwrite($fp, "post,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."','".
+                str_replace("'", "\"", $name)."','".str_replace("'", "\"", $contents)."'\n") === FALSE){
+                    echo '<script>alert("File write failed.");</script>';
+                }
+                flock($fp, LOCK_UN);
+            }else{
+                echo '<script>alert("File lock failed.");</script>';
+            }
+        }
+        
         $fp = fopen($chat_file, 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){

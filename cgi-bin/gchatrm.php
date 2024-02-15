@@ -39,6 +39,18 @@
     }
     fclose($fp);
 
+    $fp = fopen("../log/gchat.log", 'ab');
+    if ($fp){
+        if (flock($fp, LOCK_EX)){
+            if (fwrite($fp, "remove,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."'\n") === FALSE){
+                echo '<script>alert("File write failed.");</script>';
+            }
+            flock($fp, LOCK_UN);
+        }else{
+            echo '<script>alert("File lock failed.");</script>';
+        }
+    }
+
     $fp = fopen("../data/chatlist.csv", 'wb');
     if ($fp){
         if (flock($fp, LOCK_EX)){

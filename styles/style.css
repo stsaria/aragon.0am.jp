@@ -6,11 +6,11 @@ header {
     align-items: center;
     img{
         border: solid 3px black; 
-    border-radius: 8px;
+        border-radius: 8px;
         margin-left: 1%;
         width: 15%;
         @media screen and (max-width: 480px) {
-            width: 60%;
+            width: 75%;
         }
     }
     .menu {
@@ -59,7 +59,7 @@ main{
 
 pre{
     white-space: pre-wrap;
-    font-size: large;
+    font-size: x-large;
 }
 
 video{

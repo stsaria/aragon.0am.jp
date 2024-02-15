@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set('Asia/Tokyo');
     if(!isset($_GET["thread"])){
         header("Location: gchat");
         exit;
@@ -21,7 +22,7 @@
         <?php include "../header.html" ?>
         <main>
             <h2>チャット</h2>
-            <a href="#post">投稿欄に移動</a>
+            <a href="#post">投稿欄に移動</a>/<a href="#1">1</a>/<a href="#50">50</a>/<a href="#100">100</a>/<a href="#150">150</a>/<a href="#200">200</a>
             <?php
                 $chat_file = "../data/chat-".$_GET['thread'].".csv";
                 include "../cgi-bin/gchat.php";

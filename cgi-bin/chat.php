@@ -1,5 +1,6 @@
 <?php
     ob_start();
+    date_default_timezone_set('Asia/Tokyo');
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         writeData();
     }
@@ -43,6 +44,20 @@
         else if ($name === ""){$name = "Anonymous";}
         $contents = htmlspecialchars($_POST['contents'], ENT_QUOTES, 'UTF-8');
         if ($contents === ""){return;}
+
+        $fp = fopen("../log/chat-".str_replace("chat-", "", (str_replace(".csv", "", end(explode("/", $chat_file))))).".log", 'ab');
+        if ($fp){
+            if (flock($fp, LOCK_EX)){
+                if (fwrite($fp, "post,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".
+                str_replace("'", "\"", $name)."','".str_replace("'", "\"", $contents)."'\n") === FALSE){
+                    echo '<script>alert("File write failed.");</script>';
+                }
+                flock($fp, LOCK_UN);
+            }else{
+                echo '<script>alert("File lock failed.");</script>';
+            }
+        }
+
         $fp = fopen($chat_file, 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
@@ -55,10 +70,6 @@
             }
         }
         fclose($fp);
-    }
-    if($_SERVER["REQUEST_METHOD"]=="POST" && strlen(explode("/",$chat_file)[2]) > 11){
-        header("location: gchat-chat?thread=".str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]))."#post");
-        exit;
     }
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         header("location: ".$_SERVER['HTTP_REFERER']."#post");
