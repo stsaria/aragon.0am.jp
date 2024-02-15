@@ -26,6 +26,7 @@
             flock($fp, LOCK_UN);
         }else{
             echo '<script>alert("File lock failed.");</script>';
+            exit;
         }
     }
 
@@ -34,10 +35,12 @@
             if (flock($fp, LOCK_EX)){
                 if (fputcsv($fp, [$filename, $_GET['title'], date("Y/m/d H:i"), hash("fnv1a32", str_replace('.', '', $_SERVER['REMOTE_ADDR']))]) === FALSE){
                     echo '<script>alert("File write failed.");</script>';
+                    exit;
                 }
                 flock($fp, LOCK_UN);
             }else{
                 echo '<script>alert("File lock failed.");</script>';
+                exit;
             }
         }
     fclose($fp);

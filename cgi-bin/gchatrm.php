@@ -44,10 +44,12 @@
         if (flock($fp, LOCK_EX)){
             if (fwrite($fp, "remove,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."'\n") === FALSE){
                 echo '<script>alert("File write failed.");</script>';
+                exit;
             }
             flock($fp, LOCK_UN);
         }else{
             echo '<script>alert("File lock failed.");</script>';
+            exit;
         }
     }
 
@@ -61,6 +63,7 @@
             flock($fp, LOCK_UN);
         }else{
             echo '<script>alert("File lock failed.");</script>';
+            exit;
         }
     }
     fclose($fp);
