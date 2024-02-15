@@ -46,10 +46,13 @@
                     });
                 });
             </script>
+            <a href="../data/chat-<?=$_GET["thread"]?>.csv">Chat Download(csv)</a>
             <hr>
             <h3>Delete this thread</h3>
             <p>*Once a thread is deleted, it can never be restored.</br>
-            Threads can only be deleted if the IP at the time of creation and the current IP are the same.</p>
+            Threads can only be deleted if the IP at the time of creation and the current IP are the same.</br>
+            Even if you can't prove it, we may be able to remove it, depending on the content and circumstances, so</br>
+            please send it to the Etc/Contact "Discord".</p>
             <a href="../cgi-bin/gchatrm.php?thread=<?=$_GET['thread']?>"><button>Delete</button></a>
         </main>
         <?php include "../footer.html" ?>

@@ -46,10 +46,13 @@
                     });
                 });
             </script>
+            <a href="../data/chat-<?=$_GET["thread"]?>.csv">チャットをダウンロード(csv)</a>
             <hr>
             <h3>このスレッドを削除する</h3>
             <p>※スレッドを削除すると、二度と元に戻すことはできません。</br>
-            スレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</p>
+            スレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</br>
+            もし、あなたが証明できない場合でも、内容・状況によっては削除できる可能性がありますので、</br>
+            Etc/お問い合わせの"Discord"に送りください。</p>
             <a href="../cgi-bin/gchatrm.php?thread=<?=$_GET['thread']?>"><button>削除</button></a>
         </main>
         <?php include "../footer.html" ?>
