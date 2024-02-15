@@ -72,7 +72,7 @@
                 echo '<script>alert("File lock failed.");</script>';
                 exit;
             }
-        }
+        } else {exit;}
         if($num_response >= 200){
             echo '<script>alert("Response > 200");</script>';
             exit;
@@ -91,7 +91,7 @@
                 echo '<script>alert("File lock failed.");</script>';
                 exit;
             }
-        }
+        } else {exit;}
         
         $fp = fopen($chat_file, 'ab');
         if ($fp){
@@ -105,7 +105,7 @@
                 echo '<script>alert("File lock failed.");</script>';
                 exit;
             }
-        }
+        } else {exit;}
         fclose($fp);
     }
     if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['thread']) && isset($_GET['name'])){

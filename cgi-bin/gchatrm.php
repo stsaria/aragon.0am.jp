@@ -36,7 +36,7 @@
         } else {
             echo '<script>alert("File lock failed.");</script>';
         }
-    }
+    } else {exit;}
     fclose($fp);
 
     $fp = fopen("../log/gchat.log", 'ab');
@@ -51,7 +51,7 @@
             echo '<script>alert("File lock failed.");</script>';
             exit;
         }
-    }
+    } else {exit;}
 
     $fp = fopen("../data/chatlist.csv", 'wb');
     if ($fp){
@@ -65,7 +65,7 @@
             echo '<script>alert("File lock failed.");</script>';
             exit;
         }
-    }
+    } else {exit;}
     fclose($fp);
     if (isset($_SERVER['HTTP_REFERER'])){
         header("Location: ".$_SERVER['HTTP_REFERER']);

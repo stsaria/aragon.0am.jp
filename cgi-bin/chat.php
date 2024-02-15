@@ -34,7 +34,7 @@
                 echo '<script>alert("File lock failed.");</script>';
                 exit;
             }
-        }
+        } else {exit;}
         fclose($fp);
         return $data;
     }
@@ -58,7 +58,7 @@
                 echo '<script>alert("File lock failed.");</script>';
                 exit;
             }
-        }
+        } else {exit;}
 
         $fp = fopen($chat_file, 'ab');
         if ($fp){
@@ -72,7 +72,7 @@
                 echo '<script>alert("File lock failed.");</script>';
                 exit;
             }
-        }
+        } else {exit;}
         fclose($fp);
     }
     if($_SERVER["REQUEST_METHOD"]=="POST"){
