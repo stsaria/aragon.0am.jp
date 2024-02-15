@@ -41,7 +41,6 @@
                 $(document).ready(function(){
                     $('#sbm_btn').click(function(){
                         var name = $('#name').val();
-                        console.log(name);
                         sessionStorage.setItem("name", name);
                     });
                 });
