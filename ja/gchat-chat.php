@@ -8,7 +8,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="UTF-8" />
         </script src="https://code.jquery.com/jquery-3.5.1.min.js">
