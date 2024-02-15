@@ -6,8 +6,7 @@
             if (x[x.length-1] == ""){x.pop()}
             if (x[x.length-2] == "en" || x[x.length-1] == "en"){url_redirect = "../ja/";}
             else {url_redirect = "../en/";}
-            if (!(x[x.length-1] == "en" || x[x.length-1] == "ja")){
-                url_redirect = url_redirect + x[x.length-1]}
+            if (!(x[x.length-1] == "en" || x[x.length-1] == "ja")){url_redirect = url_redirect + x[x.length-1]}
             window.location.href = url_redirect;
         }
     </script>
