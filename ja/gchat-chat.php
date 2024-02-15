@@ -11,11 +11,11 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8" />
-        </script src="http://code.jquery.com/jquery-1.8.2.min.js">
         <link rel="icon" href="../img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../styles/style.css" rel="stylesheet" />
         <title>Saadi/Chat</title>
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js" defer></script>
     </head>
     <body>
         <?php include "../header.html" ?>
