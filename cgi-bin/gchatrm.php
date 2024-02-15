@@ -44,7 +44,7 @@
         if (flock($fp, LOCK_EX)){
             unlink($filename);
             $rows = array_splice($rows, $num_rm_thread);
-            if (count($rows) == 0){fwrite($fp, null);}
+            if ($rows == []){fwrite($fp, null);}
             else{foreach ($rows as $row){fputcsv($fp, $row);}}
             flock($fp, LOCK_UN);
         }else{
