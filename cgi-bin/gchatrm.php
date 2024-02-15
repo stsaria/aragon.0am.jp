@@ -20,7 +20,7 @@
                 if (count($rows) >= 30){$rows = array_slice($rows, -30);}
             }
             foreach ($rows as $row){
-                if ($row[0] == "../data/chat-".$_GET['thread'].".csv" && $row[3] == hash("fnv1a32", ip2long($_SERVER['REMOTE_ADDR']))){
+                if ($row[0] == "../data/chat-".$_GET['thread'].".csv" && $row[3] == hash("fnv1a32", $_SERVER['REMOTE_ADDR'])){
                     $filename = $row[0];
                     break;
                 }
@@ -42,7 +42,7 @@
     $fp = fopen("../log/gchat.log", 'ab');
     if ($fp){
         if (flock($fp, LOCK_EX)){
-            if (fwrite($fp, "remove,'".date("Y/m/d H:i")."','".long2ip(ip2long($_SERVER['REMOTE_ADDR']))."','".$_GET['thread']."'\n") === FALSE){
+            if (fwrite($fp, "remove,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."'\n") === FALSE){
                 echo '<script>alert("File write failed.");</script>';
                 exit;
             }

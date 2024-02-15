@@ -49,7 +49,7 @@
         $fp = fopen("../log/chat-".str_replace("chat-", "", (str_replace(".csv", "", end(explode("/", $chat_file))))).".log", 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
-                if (fwrite($fp, "post,'".date("Y/m/d H:i")."','".long2ip(ip2long($_SERVER['REMOTE_ADDR']))."','".
+                if (fwrite($fp, "post,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".
                 str_replace("'", "\"", $name)."','".str_replace("'", "\"", $contents)."'\n") === FALSE){
                     echo '<script>alert("File write failed.");</script>';
                 }
@@ -63,7 +63,7 @@
         $fp = fopen($chat_file, 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
-                if (fputcsv($fp, [$name, $contents, date("Y/m/d H:i"), hash("fnv1a32", ip2long($_SERVER['REMOTE_ADDR']))]) === FALSE){
+                if (fputcsv($fp, [$name, $contents, date("Y/m/d H:i"), hash("fnv1a32", $_SERVER['REMOTE_ADDR'])]) === FALSE){
                     echo '<script>alert("File write failed.");</script>';
                     exit;
                 }
