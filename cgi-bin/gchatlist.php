@@ -1,14 +1,14 @@
 <?php
     $rows = [];
+    $all = false;
+    if (isset($_GET["all"])){if ($_GET["all"] == "true"){$all = true;}}
     $fp = fopen("../data/chatlist.csv", 'rb');
     if ($fp){
         if (flock($fp, LOCK_SH)){
             while ($row = fgetcsv($fp)) {
                 $rows[] = $row;
             }
-            if ($rows){
-                if (count($rows) >= 30){$rows = array_slice($rows, -30);}
-            }
+            if ($rows && $all == false){if (count($rows) >= 30){$rows = array_slice($rows, -30);}}
             if (!empty($rows)): ?>
                 <ul>
             <?php foreach ($rows as $row): ?>
