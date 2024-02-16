@@ -63,6 +63,17 @@ pre{
 }
 
 video{
-    width: 30%;
     margin-top: 0.5%;
+    width: 45%;
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
+}
+
+img{
+    margin-top: 0.5%;
+    width: 45%;
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
 }
