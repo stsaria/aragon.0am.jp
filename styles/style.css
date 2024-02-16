@@ -20,7 +20,9 @@ header {
     }
     .nav_left{
         margin-left: auto;
-        margin-right: 0%;
+        @media screen and (max-width: 480px) {
+            margin-left: 0%;
+        }
     }
     .nav_right, h1{margin-right: 1%;}
     .nav_right{.menu{
