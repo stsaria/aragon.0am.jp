@@ -18,13 +18,13 @@
                     $rows[] = $row;
                 }
                 if (!empty($rows)): ?>
-                    <ul>
+                    <ol>
                 <?php foreach ($rows as $row): ?>
                     <?php $num_response++ ?>
-                    <li id="<?=$num_response?>"><?=$num_response?>|<?=$row[2]?>|ID:<?=$row[3]?></br>
+                    <li id="<?=$num_response?>"><?=$row[2]?>|ID:<?=$row[3]?></br>
                     <?=$row[0]?>|<?=$row[1]?></li>
                 <?php endforeach; ?>
-                    </ul>
+                    </ol>
                 <?php else: ?>
                     
                 <?php endif; ?>
