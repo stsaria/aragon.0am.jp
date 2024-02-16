@@ -1,5 +1,5 @@
 <?php
-    date_default_timezone_set('Asia/Tokyo');
+    date_default_timezone_set('America/Los_Angeles');
     if(!isset($_GET["thread"])){
         header("Location: gchat");
         exit;
