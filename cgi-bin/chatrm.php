@@ -1,6 +1,7 @@
 <?php
     ob_start();
-    if (!isset($_GET['thread'])){
+    $language = explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER']))-2];
+    if (!isset($_GET['thread']) || !($language == "ja" || $language == "en")){
         if (isset($_SERVER['HTTP_REFERER'])){
             header("Location: ".$_SERVER['HTTP_REFERER']);
         }
@@ -10,7 +11,7 @@
     $rows = [];
     $filename = "";
     $num_rm_thread=0;
-    $fp = fopen("../data/chatlist.csv", 'rb');
+    $fp = fopen("../data/chatlist-".$language.".csv", 'rb');
     if ($fp){
         if (flock($fp, LOCK_SH)){
             while ($row = fgetcsv($fp)) {
@@ -20,7 +21,7 @@
                 if (count($rows) >= 30){$rows = array_slice($rows, -30);}
             }
             foreach ($rows as $row){
-                if ($row[0] == "../data/chat-".$_GET['thread'].".csv" && $row[3] == hash("fnv1a32", $_SERVER['REMOTE_ADDR'])){
+                if ($row[0] == "../data/chat-".$_GET["thread"].".csv" && $row[3] == hash("fnv1a32", $_SERVER['REMOTE_ADDR'])){
                     $filename = $row[0];
                     break;
                 }
@@ -39,7 +40,7 @@
     } else {exit;}
     fclose($fp);
 
-    $fp = fopen("../log/gchat.log", 'ab');
+    $fp = fopen("../log/chat-".$_GET["language"].".log", 'ab');
     if ($fp){
         if (flock($fp, LOCK_EX)){
             if (fwrite($fp, "remove,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."'\n") === FALSE){
@@ -53,7 +54,7 @@
         }
     } else {exit;}
 
-    $fp = fopen("../data/chatlist.csv", 'wb');
+    $fp = fopen("../data/chatlist-".$language.".csv", 'wb');
     if ($fp){
         if (flock($fp, LOCK_EX)){
             unlink($filename);

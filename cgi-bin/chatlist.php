@@ -2,7 +2,7 @@
     $rows = [];
     $all = false;
     if (isset($_GET["all"])){if ($_GET["all"] == "true"){$all = true;}}
-    $fp = fopen("../data/chatlist.csv", 'rb');
+    $fp = fopen("../data/chatlist-".$language.".csv", 'rb');
     if ($fp){
         if (flock($fp, LOCK_SH)){
             while ($row = fgetcsv($fp)) {
@@ -13,7 +13,7 @@
                 <ul>
             <?php foreach ($rows as $row): ?>
                 <?php
-                    $link = "gchat-chat?thread=".str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]));
+                    $link = "chat?thread=".str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]));
                 ?>
                 <li><?=$row[2]?>|<a href="<?=$link?>"><?=$row[1]?></a></li>
             <?php endforeach; ?>

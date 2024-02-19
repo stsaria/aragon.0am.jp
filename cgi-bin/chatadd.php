@@ -1,15 +1,20 @@
 <?php
     ob_start();
-    if (!isset($_GET['title'])){
+    $language = explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER']))-2];
+    if (!isset($_GET['title']) || !($language == "ja" || $language == "en")){
         if (isset($_SERVER['HTTP_REFERER'])){
             header("Location: ".$_SERVER['HTTP_REFERER']);
         }
         exit;
     }
+    if ($language == "ja"){date_default_timezone_set('America/Los_Angeles');}
+    else{date_default_timezone_set('America/Los_Angeles');}
 
     $filename = "";
+    $thread = "";
     while (!file_exists($filename)){
-        $filename = "../data/chat-".uniqid(rand(), true).".csv";
+        $thread = uniqid(rand(), true);
+        $filename = "../data/chat-".$thread.".csv";
         if (!file_exists($filename)){
             touch($filename);
             break;
@@ -18,7 +23,7 @@
     }
 
     $title = htmlspecialchars($_GET['title'], ENT_QUOTES, 'UTF-8');
-    $fp = fopen("../log/gchat.log", 'ab');
+    $fp = fopen("../log/chat-".$language.".log", 'ab');
     if ($fp){
         if (flock($fp, LOCK_EX)){
             if (fwrite($fp, "add,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".str_replace("'", "\"", $title)."'\n") === FALSE){
@@ -31,7 +36,7 @@
         }
     } else {exit;}
 
-    $fp = fopen("../data/chatlist.csv", 'ab');
+    $fp = fopen("../data/chatlist-".$language.".csv", 'ab');
         if ($fp){
             if (flock($fp, LOCK_EX)){
                 if (fputcsv($fp, [$filename, str_replace("'", "\"", $title), date("Y/m/d H:i"), hash("fnv1a32", $_SERVER['REMOTE_ADDR'])]) === FALSE){
@@ -45,7 +50,6 @@
             }
         } else {exit;}
     fclose($fp);
-    if (isset($_SERVER['HTTP_REFERER'])){
-        header("Location: ".$_SERVER['HTTP_REFERER']);
-    }
+    header("Location: ../".$language."/chat?thread=".$thread);
+    exit;
 ?>

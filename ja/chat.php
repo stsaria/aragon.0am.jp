@@ -1,10 +1,10 @@
 <?php
     date_default_timezone_set('Asia/Tokyo');
     if(!isset($_GET["thread"])){
-        header("Location: gchat");
+        header("Location: chatlist");
         exit;
     } else if (!file_exists("../data/chat-".$_GET['thread'].".csv")){
-        header("Location: gchat");
+        header("Location: chatlist");
         exit;
     }
 ?>
@@ -25,7 +25,7 @@
             <a href="#post">投稿欄に移動</a>/<a href="#1">1</a>/<a href="#50">50</a>/<a href="#100">100</a>/<a href="#150">150</a>/<a href="#200">200</a>
             <?php
                 $chat_file = "../data/chat-".$_GET['thread'].".csv";
-                include "../cgi-bin/gchat.php";
+                include "../cgi-bin/chat.php";
             ?>
             <hr>
             <h2 id="post">投稿</h2>
@@ -55,7 +55,7 @@
             スレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</br>
             もし、あなたが証明できない場合でも、内容・状況によっては削除できる可能性がありますので、</br>
             Etc/お問い合わせの"Discord"に送りください。</p>
-            <a href="../cgi-bin/gchatrm.php?thread=<?=$_GET['thread']?>"><button>削除</button></a>
+            <a href="../cgi-bin/chatrm.php?thread=<?=$_GET['thread']?>"><button>削除</button></a>
         </main>
         <?php include "../footer.html" ?>
     </body>

@@ -1,10 +1,10 @@
 <?php
     date_default_timezone_set('America/Los_Angeles');
     if(!isset($_GET["thread"])){
-        header("Location: gchat");
+        header("Location: chatlist");
         exit;
     } else if (!file_exists("../data/chat-".$_GET['thread'].".csv")){
-        header("Location: gchat");
+        header("Location: chatlist");
         exit;
     }
 ?>
@@ -25,7 +25,7 @@
             <a href="#post">Go to the Post section</a>/<a href="#1">1</a>/<a href="#50">50</a>/<a href="#100">100</a>/<a href="#150">150</a>/<a href="#200">200</a>
             <?php
                 $chat_file = "../data/chat-".$_GET['thread'].".csv";
-                include "../cgi-bin/gchat.php";
+                include "../cgi-bin/chat.php";
             ?>
             <hr>
             <h2 id="post">Post</h2>
@@ -55,7 +55,7 @@
             Threads can only be deleted if the IP at the time of creation and the current IP are the same.</br>
             Even if you can't prove it, we may be able to remove it, depending on the content and circumstances, so</br>
             please send it to the Etc/Contact "Discord".</p>
-            <a href="../cgi-bin/gchatrm.php?thread=<?=$_GET['thread']?>"><button>Delete</button></a>
+            <a href="../cgi-bin/chatrm.php?thread=<?=$_GET['thread']?>"><button>Delete</button></a>
         </main>
         <?php include "../footer.html" ?>
     </body>

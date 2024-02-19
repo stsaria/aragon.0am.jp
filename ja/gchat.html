@@ -1,26 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" href="../img/favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../styles/style.css" rel="stylesheet" />
-        <title>Saadi/GChat</title>
+        <meta http-equiv="Refresh" content="0;URL=chat"> 
     </head>
-    <body>
-        <?php include "../header.html" ?>
-        <main>
-            <h2>Global Chat</h2>
-            <hr>
-            <h3>スレッド一覧</h3>
-            <?php include "../cgi-bin/gchatlist.php" ?>
-            <a href="?all=true">すべて表示(一時的)</a>
-            <hr>
-            <h3>スレッドを作成</h3>
-            <form method="GET" action="../cgi-bin/gchatadd">
-            <span>スレッド名:</span><input type="text" name="title"><input type="submit" name="sbm_btn" value="作成">
-            </form>
-        </main>
-        <?php include "../footer.html" ?>
-    </body>
 </html>
