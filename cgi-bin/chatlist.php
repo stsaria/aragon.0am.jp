@@ -15,7 +15,7 @@
                 <?php
                     $link = "chat?thread=".str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]));
                     $fpx = fopen($row[0], 'r');
-                    if (flock($fpx, LOCK_SH)){for( $count = 0; fgets( $fpx ); $count++ );}
+                    if (flock($fpx, LOCK_SH)){for($count = 0; fgetcsv($fpx); $count++);}
                     flock($fpx, LOCK_UN);
                 ?>
                 <li><?=$row[2]?>|<?=$row[3]?></br><a href="<?=$link?>"><?=$row[1]?></a>(<?=$count?>)</li>
