@@ -1,6 +1,8 @@
 <?php
     ob_start();
-    date_default_timezone_set('Asia/Tokyo');
+    $language = explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER']))-2];
+    if ($language == "ja"){date_default_timezone_set('America/Los_Angeles');}
+    else{date_default_timezone_set('America/Los_Angeles');}
     $chat_file = "../data/chat-".$_GET['thread'].".csv";
     if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['name']) && isset($_GET['thread'])){
         writeData();
