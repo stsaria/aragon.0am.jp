@@ -9,15 +9,16 @@
     </head>
     <body>
         <?php include "../header.html" ?>
+        <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Saadi"); ?>
         <main>
             <img class="minecraft_screenshot" width=% src="../img/screenshot-1.png" alt="Saadiの現在(2月)">
             <div class="saadi_description">
                 <h2>Saadiのホームページにようこそ!</h2>
                 <p>Saadiは<a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a>のモロッコにある、2023年10月に作成された国です。</p>
                 SaadiのDiscordサーバーは<a href="https://discord.gg/q9MnsbNPkG">こちらです</a>
-                <p style="color: red;">1月7日にSaadiおよびAragonは、モンゴルに宣戦布告することを発表しました！</br>
-                私たちはモンゴルを敵国とし、今後いかなる手段も厭わずにモンゴルに対抗します。</p>
-                <p>モンゴルの宣戦布告についての詳しい情報はニュースをご覧ください。</p>
+                <p style="color: red;">私たちは、<?=implode("・",$nationinfo[2])?>に敵対しています</p>
+                <p>詳しい情報はニュースをご覧ください。</p>
+                <p>現在の人口 : <?=$nationinfo[0]?>人</p>
             </div>
             <div style="text-align: center;">
                 <h3>あなたも入りませんか？</h3>

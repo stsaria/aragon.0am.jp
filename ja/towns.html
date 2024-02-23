@@ -12,18 +12,21 @@
         <main>
             <h2>町リスト</h2>
             <hr>
-            <h2>参加制</h2>
             <p>町に参加する際は</p>
             <pre>/t join xxxxxxxx</pre>
-            <p>で参加できます。</p>
+            <p>で参加できます。(招待制の場合は参加できません)</p>
             <ul>
-                <li>Easima - Acted_</br>
-                    Discord ID:actedsauce</li>
-            </ul>
-            <h2>招待制</h2>
-            <ul>
-                <li>Marrakech - camel_case_</br>
-                    Discord ID:andres_iniesta_lujan</li>
+                <?php
+                    include "../cgi-bin/emcapi.php";
+                    $nationinfo = getNationInfo("Saadi");
+                    foreach($nationinfo[1] as $town){
+                        $towninfo = getTownInfo($town);
+                        echo "<li>".$town." - ".$towninfo[1]." - ".$towninfo[0]."人";
+                        if($towninfo[2]){echo " - 参加制";}
+                        else{echo " - 招待制";}
+                        echo "</li>";
+                    }
+                ?>
             </ul>
         </main>
         <?php include "../footer.html" ?>

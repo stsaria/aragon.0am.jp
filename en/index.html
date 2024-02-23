@@ -9,15 +9,16 @@
     </head>
     <body>
         <?php include "../header.html" ?>
+        <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Saadi"); ?>
         <main>
             <img class="minecraft_screenshot" width=% src="../img/screenshot-1.png" alt="Saadi now situation (February)">
             <div class="saadi_description">
                 <h2>Welcome to Saadi's website!</h2>
                 <p>Saadi is located in <a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a> Morocco and was created in October 2023.</p>
                 Saadi Discord server is <a href="https://discord.gg/q9MnsbNPkG">here</a>
-                <p style="color: red;">On January 7, Saadi and Aragon announced that they are declaring war on Mongolia!</br>
-                We have declared Mongolia an enemy nation and will henceforth oppose it by any means necessary. </p>
-                <p>For more information on the Mongolian declaration of war, please see News.</p>
+                <p style="color: red;">We are hostile to <?=implode(" and ",$nationinfo[2])?>.</p>
+                <p>For more information, please see News.</p>
+                <p>Current Population : <?=$nationinfo[0]?> pepole</p>
             </div>
             <div style="text-align: center;">
                 <h3>Would you like to join us?</h3>

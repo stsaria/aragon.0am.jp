@@ -52,4 +52,3 @@
     fclose($fp);
     header("Location: ../".$language."/chat?thread=".$thread);
     exit;
-?>
