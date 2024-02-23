@@ -53,7 +53,7 @@ main{
     text-align: right;
     align-items: center;
     
-    width: 30%;
+    width: 25%;
     @media screen and (max-width: 480px) {
         width: 100%;
     }
