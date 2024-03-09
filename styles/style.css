@@ -2,15 +2,15 @@ header {
     display: flex;
     width: 100%;
     height: 110px;
-    background-color: firebrick;
+    background-color: goldenrod;
     align-items: center;
     img{
         border: solid 3px black; 
         border-radius: 8px;
         margin-left: 1%;
-        width: 15%;
+        width: 7%;
         @media screen and (max-width: 480px) {
-            width: 70%;
+            width: 80%;
         }
     }
     .menu {
@@ -32,7 +32,7 @@ header {
 }
 
 footer{
-    background-color: firebrick;
+    background-color: goldenrod;
     width: 100%;
     p{margin-left: 0.5%;}
 }
@@ -41,7 +41,7 @@ main{
     margin-left: 0.5%;
 }
 
-.saadi_description{
+.aragon_description{
     display: inline-block;
     vertical-align: top;
     align-items: center;

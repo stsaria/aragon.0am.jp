@@ -5,7 +5,7 @@
         <link rel="icon" href="../img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../styles/style.css" rel="stylesheet" />
-        <title>Saadi/Town</title>
+        <title>Aragon/Town</title>
     </head>
     <body>
         <?php include "../header.html" ?>
@@ -18,7 +18,7 @@
             <ul>
                 <?php
                     include "../cgi-bin/emcapi.php";
-                    $nationinfo = getNationInfo("Saadi");
+                    $nationinfo = getNationInfo("Aragon");
                     foreach($nationinfo[1] as $town){
                         $towninfo = getTownInfo($town);
                         echo "<li>".$town." - ".$towninfo[1]." - ".$towninfo[0]." pepole";
