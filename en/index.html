@@ -5,20 +5,26 @@
         <link rel="icon" href="../img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../styles/style.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <title>Aragon</title>
     </head>
     <body>
+        <div class="bg">
         <?php include "../header.html" ?>
         <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Aragon"); ?>
         <main>
-            <img class="minecraft_screenshot" width=% src="../img/screenshot-1.png" alt="Aragon now situation">
-            <div class="aragon_description">
+            <div class="container row">
+                <div class="col">
+                    <?php include "gallery.html" ?>
+                </div>
+                <div class="col">
                 <h2>Welcome to Aragon's website!</h2>
                 <p>Aragon is located in <a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a> Europe and was created in November 2022.</p>
                 Aragon Discord server is <a href="https://discord.gg/WvC7SadC2Z">here</a>
                 <p style="color: red;">We are hostile to <?=implode(" and ",$nationinfo[2])?>.</p>
                 <p>For more information, please see News.</p>
                 <p>Current Population : <?=$nationinfo[0]?> pepole</p>
+                </div>
             </div>
             <div style="text-align: center;">
                 <h3>Would you like to join us?</h3>
@@ -33,5 +39,7 @@
             <?php include "news.html" ?>
         </main>
         <?php include "../footer.html" ?>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     </body>
 </html>

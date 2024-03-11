@@ -8,6 +8,7 @@
         <title>Aragon/Town</title>
     </head>
     <body>
+        <div class="bg">
         <?php include "../header.html" ?>
         <main>
             <h2>Town list</h2>
@@ -15,20 +16,29 @@
             <p>You can join a town by using the</p>
             <pre>/t join xxxxxxxx</pre>
             <p>(If you are by invitation only, you will not be able to participate with the above commands.)</p>
-            <ul>
+            <table>
+                <thead>
+                    <th>Town name</th>
+                    <th>Mayor</th>
+                    <th>Number of citizens</th>
+                    <th>Participation/Invitation</th>
+                    <th>View on EarthMC map</th>
+                </thead>
                 <?php
                     include "../cgi-bin/emcapi.php";
                     $nationinfo = getNationInfo("Aragon");
                     foreach($nationinfo[1] as $town){
                         $towninfo = getTownInfo($town);
-                        echo "<li>".$town." - ".$towninfo[1]." - ".$towninfo[0]." pepole";
-                        if($towninfo[2]){echo " - Participation";}
-                        else{echo " - Invitation";}
-                        echo "</li>";
+                        echo "<tr><td>".$town."</td><td>".$towninfo[1]."</td><td>".$towninfo[0]."</td>";
+                        if($towninfo[2]){echo "<td class=\"text-success\">Participation";}
+                        else{echo "<td class=\"text-danger\">Invitation";}
+                        echo "</td><td><a href=\"https://earthmc.net/map/aurora/?worldname=earth&mapname=flat&zoom=5&x=".$towninfo[3]."&z=".$towninfo[4]."\" target=\"_blank\">View on map</a>";
+                        echo "</td></tr>";
                     }
                 ?>
-            </ul>
+            </table>
         </main>
         <?php include "../footer.html" ?>
+        </div>
     </body>
 </html>

@@ -8,6 +8,7 @@
         <title>Aragon/Chat</title>
     </head>
     <body>
+        <div class="bg">
         <?php include "../header.html" ?>
         <main>
             <h2>Chat</h2>
@@ -17,10 +18,17 @@
             <a href="?all=true">Show all (temporary)</a>
             <hr>
             <h3>Make thread</h3>
-            <form method="GET" action="../cgi-bin/chatadd">
-            <span>Thread name:</span><input type="text" name="title"><input type="submit" name="sbm_btn" value="Make">
+            <form method="GET" action="../cgi-bin/chatadd" class="row g-2">
+                <div class="col-auto">
+                    <input class="form-control" type="text" placeholder="Thread name" name="title">
+                </div>
+                <div class="col-auto">
+                    <input class="btn btn-primary" type="submit" name="sbm_btn" value="Make">
+                </div>
+                    
             </form>
         </main>
         <?php include "../footer.html" ?>
+        </div>
     </body>
 </html>

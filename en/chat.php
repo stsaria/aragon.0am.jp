@@ -19,6 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
+        <div class="bg">
         <?php include "../header.html" ?>
         <main>
             <h2>Chat</h2>
@@ -30,13 +31,13 @@
             <hr>
             <h2 id="post">Post</h2>
             <form method="GET" action="">
-            <span>Thread : </span><input type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
-            <span>Name : </span><input type="text" name="name" id="name" maxlength="10"></br></br>
+            <span>Thread : </span><input class="form-control" type="text" name="thread" value="<?=$_GET['thread']?>" readonly></br>
+            <span>Name : </span><input class="form-control" type="text" name="name" id="name" maxlength="10"></br></br>
             <span>Contents(Up to 5 lines)</br>
             You can specify a specific response, such as "///1".</br>
             (Must be written at the beginning of the sentence)</br></span>
-            <textarea name="contents" rows="8" cols="40" maxlength="70"></textarea></br>
-            <input type="submit" id="sbm_btn" value="Post">
+            <textarea class="form-control" name="contents" rows="8" cols="40" maxlength="70"></textarea></br>
+            <input class="form-control btn btn-primary" type="submit" id="sbm_btn" value="Post">
             </form>
             <script>
                 var name = localStorage.getItem("name");
@@ -55,8 +56,9 @@
             Threads can only be deleted if the IP at the time of creation and the current IP are the same.</br>
             Even if you can't prove it, we may be able to remove it, depending on the content and circumstances, so</br>
             please send it to the Etc/Contact "Discord".</p>
-            <a href="../cgi-bin/chatrm.php?thread=<?=$_GET['thread']?>"><button>Delete</button></a>
+            <a href="../cgi-bin/chatrm.php?thread=<?=$_GET['thread']?>"><button class="btn btn-danger">Delete</button></a>
         </main>
         <?php include "../footer.html" ?>
+        </div>
     </body>
 </html>

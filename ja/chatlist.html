@@ -5,9 +5,11 @@
         <link rel="icon" href="../img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../styles/style.css" rel="stylesheet" />
-        <title>Aragon/Chat</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <title>Aragon:Chat</title>
     </head>
     <body>
+        <div class="bg">
         <?php include "../header.html" ?>
         <main>
             <h2>Chat</h2>
@@ -17,10 +19,17 @@
             <a href="?all=true">すべて表示(一時的)</a>
             <hr>
             <h3>スレッドを作成</h3>
-            <form method="GET" action="../cgi-bin/chatadd">
-            <span>スレッド名:</span><input type="text" name="title"><input type="submit" name="sbm_btn" value="作成">
+            <form method="GET" action="../cgi-bin/chatadd" class="row g-2">
+                <div class="col-auto">
+                    <input class="form-control" placeholder="スレッド名" type="text" name="title">
+                </div>
+                <div class="col-auto">
+                    <input class="form-control btn btn-primary" type="submit" name="sbm_btn" value="作成">
+                </div>
             </form>
         </main>
         <?php include "../footer.html" ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </div>
     </body>
 </html>
