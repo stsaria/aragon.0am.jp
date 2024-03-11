@@ -1,7 +1,7 @@
 <?php
     ob_start();
     $language = explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER']))-2];
-    if ($language == "ja"){date_default_timezone_set('Asia/Japan');}
+    if ($language == "ja"){date_default_timezone_set('Asia/Tokyo');}
     else{date_default_timezone_set('America/Los_Angeles');}
     $chat_file = "../data/chat-".$_GET['thread'].".csv";
     if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['name']) && isset($_GET['thread'])){
@@ -119,7 +119,7 @@
         fclose($fp);
     }
     if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['thread']) && isset($_GET['name'])){
-        header("location: ?thread=".$_GET['thread'].str_replace(".csv","",str_replace("chat-", "", explode("/",$row[0])[2]))."#post");
+        echo "<meta http-equiv=\"Refresh\" content=\"0; URL=../".$language."/chat?thread=".$_GET['thread']."#post\">";
         exit;
     }
 ?>
