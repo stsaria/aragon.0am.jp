@@ -12,20 +12,28 @@
         <div class="bg">
         <?php include "../header.html" ?>
         <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Aragon"); ?>
-        <main>
-            <div class="container row">
-                <div class="col">
-                <?php include "gallery.html" ?>
-                </div>
-                <div class="aragon_description col">
+        <script>
+            function isSmartPhone() {
+                if (navigator.userAgentData && navigator.userAgentData.mobile) {
+                    return true
+                } else {
+                    return false;
+                }
+            }
+        </script>
+        <main class="container">
+            <div class="row">
+                <script>if(!isSmartPhone()){document.write("<div class=\"col\">");}</script>
+                    <?php include "gallery.html" ?>
+                <script>if(!isSmartPhone()){document.write("</div><div class=\"col\">");}</script>
                     <h2>Aragonのホームページにようこそ!</h2>
                     <p>Aragonは<a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a>のヨーロッパにある、2022年11月に作成された国です。</p>
-                    AragonのDiscordサーバーは<a href="https://discord.gg/WvC7SadC2Z">こちらです</a>
+                    <p>AragonのDiscordサーバーは<a href="https://discord.gg/WvC7SadC2Z">こちらです</a></p>
                     <p style="color: red;">私たちは、<?=implode("・",$nationinfo[2])?>に敵対しています</p>
                     <p>詳しい情報はニュースをご覧ください。</p>
                     <p>現在の人口 : <?=$nationinfo[0]?>人</p>
                     <p><strong>2024/03/11</strong>: <a href="https://github.com/src3453">src3453</a>によってサイトのデザインが一新されました！</p>
-                </div>
+                <script>if(!isSmartPhone()){document.write("</div>");}</script>
             </div>
             <div style="text-align: center;">
                 <h3>あなたも入りませんか？</h3>

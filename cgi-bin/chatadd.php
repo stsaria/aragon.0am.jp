@@ -7,9 +7,11 @@
         }
         exit;
     }
-    if ($language == "ja"){date_default_timezone_set('America/Los_Angeles');}
+    if ($language == "ja"){date_default_timezone_set('Asia/Tokyo');}
     else{date_default_timezone_set('America/Los_Angeles');}
 
+    $title = htmlspecialchars($_GET['title'], ENT_QUOTES, 'UTF-8');
+    if ($title == ""){header("Location: ../".$language."/chat"); exit;}
     $filename = "";
     $thread = "";
     while (!file_exists($filename)){
@@ -22,7 +24,6 @@
         continue;
     }
 
-    $title = htmlspecialchars($_GET['title'], ENT_QUOTES, 'UTF-8');
     $fp = fopen("../log/chat-".$language.".log", 'ab');
     if ($fp){
         if (flock($fp, LOCK_EX)){

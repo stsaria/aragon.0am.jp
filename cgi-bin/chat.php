@@ -88,7 +88,7 @@
             exit;
         }
 
-        $fp = fopen("../log/gchat.log", 'ab');
+        $fp = fopen("../log/chat.log", 'a');
         if ($fp){
             if (flock($fp, LOCK_EX)){
                 if (fwrite($fp, "post,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."','".
@@ -103,7 +103,7 @@
             }
         } else {exit;}
         
-        $fp = fopen($chat_file, 'ab');
+        $fp = fopen($chat_file, 'a');
         if ($fp){
             if (flock($fp, LOCK_EX)){
                 if (fputcsv($fp, [$name, $contents, date("Y/m/d H:i"), hash("fnv1a32", $_SERVER['REMOTE_ADDR'])]) === FALSE){

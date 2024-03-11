@@ -28,27 +28,10 @@ footer{
 }
 
 main{
-    
     margin-left: 0.5%;
     margin-top: 1%;
-    
-}
-
-.aragon_description{
-    display: inline-block;
-    vertical-align: top;
-    align-items: center;
-    margin-left: 1%;
-}
-
-.minecraft_screenshot{
-    margin-top: 1%;
-    text-align: right;
-    align-items: center;
-    
-    width: 25%;
     @media screen and (max-width: 480px) {
-        width: 100%;
+        margin-top: 20%;
     }
 }
 

@@ -11,14 +11,11 @@
     $rows = [];
     $filename = "";
     $num_rm_thread=0;
-    $fp = fopen("../data/chatlist-".$language.".csv", 'rb');
+    $fp = fopen("../data/chatlist-".$language.".csv", 'r');
     if ($fp){
         if (flock($fp, LOCK_SH)){
             while ($row = fgetcsv($fp)) {
                 $rows[] = $row;
-            }
-            if ($rows){
-                if (count($rows) >= 30){$rows = array_slice($rows, -30);}
             }
             foreach ($rows as $row){
                 if ($row[0] == "../data/chat-".$_GET["thread"].".csv" && $row[3] == hash("fnv1a32", $_SERVER['REMOTE_ADDR'])){
@@ -40,7 +37,7 @@
     } else {exit;}
     fclose($fp);
 
-    $fp = fopen("../log/chat-".$_GET["language"].".log", 'ab');
+    $fp = fopen("../log/chat-".$language.".log", 'a');
     if ($fp){
         if (flock($fp, LOCK_EX)){
             if (fwrite($fp, "remove,'".date("Y/m/d H:i")."','".$_SERVER['REMOTE_ADDR']."','".$_GET['thread']."'\n") === FALSE){
@@ -54,7 +51,7 @@
         }
     } else {exit;}
 
-    $fp = fopen("../data/chatlist-".$language.".csv", 'wb');
+    $fp = fopen("../data/chatlist-".$language.".csv", 'w');
     if ($fp){
         if (flock($fp, LOCK_EX)){
             unlink($filename);

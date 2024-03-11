@@ -22,7 +22,7 @@
     <body>
     <div class="bg">
         <?php include "../header.html" ?>
-        <main>
+        <main class="container">
             <div id="liveAlertPlaceholder"></div>
             <h2>チャット</h2>
             <a href="#post">投稿欄に移動</a>/<a href="#1">1</a>/<a href="#50">50</a>/<a href="#100">100</a>/<a href="#150">150</a>/<a href="#200">200</a>
@@ -37,7 +37,7 @@
             <span>名前 : </span><input class="form-control" type="text" name="name" id="name" maxlength="10"></br></br>
             <span>内容(最大5行まで)</br>
             "///1"のように特定のレスポンスを指定することができます。</br>
-            (文の初めに書く必要があります)</br></span>
+            (文の初めに書く必要があります)</span>
             <textarea class="form-control" name="contents" rows="8" cols="40" value="" maxlength="70"></textarea></br>
             <input class="form-control btn btn-primary" type="submit" id="sbm_btn" oneclick="saveName();" value="投稿">
             </form>
@@ -55,7 +55,7 @@
             <hr>
             <h3>このスレッドを削除する</h3>
             <p>※スレッドを削除すると、二度と元に戻すことはできません。</br>
-            スレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</br>
+            基本的にスレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</br>
             もし、あなたが証明できない場合でも、内容・状況によっては削除できる可能性がありますので、</br>
             Etc/お問い合わせの"Discord"に送りください。</p>
             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">削除</button>
