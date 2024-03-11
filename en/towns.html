@@ -29,7 +29,7 @@
                     $nationinfo = getNationInfo("Aragon");
                     foreach($nationinfo[1] as $town){
                         $towninfo = getTownInfo($town);
-                        echo "<tr><td>".$town."</td><td>".$towninfo[1]."</td><td>".$towninfo[0]."</td>";
+                        echo "<tr><td>".ucfirst($town)."</td><td>".$towninfo[1]."</td><td>".$towninfo[0]."</td>";
                         if($towninfo[2]){echo "<td class=\"text-success\">Participation";}
                         else{echo "<td class=\"text-danger\">Invitation";}
                         echo "</td><td><a href=\"https://earthmc.net/map/aurora/?worldname=earth&mapname=flat&zoom=5&x=".$towninfo[3]."&z=".$towninfo[4]."\" target=\"_blank\">View on map</a>";
