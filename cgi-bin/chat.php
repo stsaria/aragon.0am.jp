@@ -23,8 +23,8 @@
                     <ol>
                 <?php foreach ($rows as $row): ?>
                     <?php $num_response++ ?>
-                    <li id="<?=$num_response?>"><?=$row[2]?>|ID:<?=$row[3]?></br>
-                    <?=$row[0]?>|<?=$row[1]?></li>
+                    <strong><li id="<?=$num_response?>"><?=$row[0]?></strong> ID:<?=$row[3]?> <?=$row[2]?></br>
+                    <?=$row[1]?></li>
                 <?php endforeach; ?>
                     </ol>
                 <?php else: ?>
