@@ -23,6 +23,7 @@
     <div class="bg">
         <?php include "../header.html" ?>
         <main>
+            <div id="liveAlertPlaceholder"></div>
             <h2>チャット</h2>
             <a href="#post">投稿欄に移動</a>/<a href="#1">1</a>/<a href="#50">50</a>/<a href="#100">100</a>/<a href="#150">150</a>/<a href="#200">200</a>
             <?php
@@ -57,10 +58,28 @@
             スレッドを削除できるのは作成した時のIPと現在のIPが同じ場合のみです。</br>
             もし、あなたが証明できない場合でも、内容・状況によっては削除できる可能性がありますので、</br>
             Etc/お問い合わせの"Discord"に送りください。</p>
-            <a href="../cgi-bin/chatrm.php?thread=<?=$_GET['thread']?>"><button class="btn btn-danger">削除</button></a>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">削除</button>
         </main>
         <?php include "../footer.html" ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="deleteModalLabel">スレッドを削除</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        本当にこのスレッドを削除しますか?<br><strong>この操作は元に戻せません！</strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                        <a href="../cgi-bin/chatrm.php?thread=<?=$_GET['thread']?>"><button id="threadDeletionConfirm" type="button" class="btn btn-danger">削除</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
