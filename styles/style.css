@@ -19,7 +19,7 @@ header {
     }
 }
 
-main{@media screen and (max-width: 1000px) {margin-top: 70px;}}
+main{@media screen and (max-width: 1000px) {margin-top: 85px;}}
 
 .aragon-nav {
     font-size: xx-large;
