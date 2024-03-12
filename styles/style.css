@@ -6,10 +6,16 @@
 }
 
 header {
-    @media screen and (max-width: 680px) {
-        position: sticky;
-        top: 0;
-        z-index: 999;
+    img{
+        border: solid 3px black; 
+        border-radius: 8px;
+        margin-left: 1%;
+        width: 7%;
+        @media screen and (max-width: 680px) {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
     }
 }
 
