@@ -13,84 +13,93 @@
             if (!(x[x.length-1] == "en" || x[x.length-1] == "ja")){url_redirect = url_redirect + x[x.length-1]}
             window.location.href = url_redirect;
         }
+        function isSmartPhone() {
+            console.log(screen.width)
+            if (screen.width <= 1000) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if(isSmartPhone()){document.write(
+            `<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <div class="title aragon-nav">
+            <button class="navbar-brand btn btn-link" onclick='window.location.href = "./";'>Aragon</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">メニュー - Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+            <div class="offcanvas-body" id="navbarDropdown" >
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='window.location.href = "./";'>Home</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='window.location.href = "towns";'>Towns</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='window.location.href = "enemies";'>Enemies</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='window.location.href = "chat";'>Chat</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='window.location.href = "https://wiki.earthmc.net/wiki/Aurora:Aragon";'>Wiki</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='window.location.href = "etc";'>Etc</button>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <button class="nav-link" aria-current="page" onclick='changeLanguage()'>Ja/En</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>`
+        )} else {document.write(
+            `<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="title aragon-nav">
+            <img class="" src="../img/logo.png" alt="Aragon Logo"/>
+            <button class="navbar-brand btn btn-link" onclick='window.location.href = "./";'>Aragon</a>
+        </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <button class="nav-link" aria-current="page" onclick='window.location.href = "./";'>Home</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" aria-current="page" onclick='window.location.href = "towns";'>Towns</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" aria-current="page" onclick='window.location.href = "enemies";'>Enemies</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" aria-current="page" onclick='window.location.href = "chat";'>Chat</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-link" aria-current="page" onclick='window.location.href = "https://wiki.earthmc.net/wiki/Aurora:Aragon";'>Wiki</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" aria-current="page" onclick='window.location.href = "etc";'>Etc</button>
+            </li>
+            <li class="vr">
+                
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" aria-current="page" onclick='changeLanguage()'>Ja/En</button>
+            </li>
+        </ul>
+    </div>
+</nav>`
+        )}
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-md-block">
-        <div class="container-fluid">
-            <div class="title aragon-nav">
-                <img class="" src="../img/logo.png" alt="Aragon Logo"/>
-                <button class="navbar-brand btn btn-link" onclick='window.location.href = "./";'>Aragon</a>
-            </div>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <button class="nav-link" aria-current="page" onclick='window.location.href = "./";'>Home</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" aria-current="page" onclick='window.location.href = "towns";'>Towns</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" aria-current="page" onclick='window.location.href = "enemies";'>Enemies</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" aria-current="page" onclick='window.location.href = "chat";'>Chat</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-link" aria-current="page" onclick='window.location.href = "https://wiki.earthmc.net/wiki/Aurora:Aragon";'>Wiki</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" aria-current="page" onclick='window.location.href = "etc";'>Etc</button>
-                </li>
-                <li class="vr">
-                    
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" aria-current="page" onclick='changeLanguage()'>Ja/En</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <nav class="navbar navbar-dark bg-dark fixed-top d-md-none">
-        <div class="container-fluid">
-            <div class="title aragon-nav">
-                <button class="navbar-brand btn btn-link" onclick='window.location.href = "./";'>Aragon</a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">メニュー - Menu</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-                <div class="offcanvas-body" id="navbarDropdown" >
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='window.location.href = "./";'>Home</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='window.location.href = "towns";'>Towns</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='window.location.href = "enemies";'>Enemies</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='window.location.href = "chat";'>Chat</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='window.location.href = "https://wiki.earthmc.net/wiki/Aurora:Aragon";'>Wiki</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='window.location.href = "etc";'>Etc</button>
-                        </li>
-                        <hr>
-                        <li class="nav-item">
-                            <button class="nav-link" aria-current="page" onclick='changeLanguage()'>Ja/En</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
 </header>

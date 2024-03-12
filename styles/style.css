@@ -6,16 +6,14 @@
 }
 
 header {
-    img{
-        border: solid 3px black; 
-        border-radius: 8px;
-        margin-left: 1%;
-        width: 7%;
-        @media screen and (max-width: 480px) {
-            width: 80%;
-        }
+    @media screen and (max-width: 680px) {
+        position: sticky;
+        top: 0;
+        z-index: 999;
     }
 }
+
+main{margin-top: 70px;}
 
 .aragon-nav {
     font-size: xx-large;
@@ -27,14 +25,6 @@ footer{
     p{margin-left: 0.5%;};
 }
 
-main{
-    margin-left: 0.5%;
-    margin-top: 1%;
-    @media screen and (max-width: 480px) {
-        margin-top: 20%;
-    }
-}
-
 pre{
     white-space: pre-wrap;
     font-size: x-large;
@@ -43,7 +33,7 @@ pre{
 video{
     margin-top: 0.5%;
     width: 45%;
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 680px) {
         width: 100%;
     }
 }
@@ -51,7 +41,7 @@ video{
 img{
     margin-top: 0.5%;
     width: 45%;
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 680px) {
         width: 100%;
     }
 }

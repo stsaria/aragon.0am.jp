@@ -14,8 +14,8 @@
         <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Aragon"); ?>
         <script>
             function isSmartPhone() {
-                if (navigator.userAgentData && navigator.userAgentData.mobile) {
-                    return true
+                if (window.matchMedia && window.matchMedia('(max-device-width: 480px)').matches) {
+                    return true;
                 } else {
                     return false;
                 }
