@@ -3,21 +3,15 @@
     font-family: "IBM Plex Sans JP", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color:seashell;
 }
 
+main{color: whitesmoke;}
+
 header {
-    img{
-        border: solid 3px black; 
-        border-radius: 8px;
-        margin-left: 1%;
-        width: 7%;
-        @media screen and (max-width: 680px) {
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-    }
+    display: flex;
+    color: black;
+    img{width: 7%;}
+    right: 100%;
 }
 
 main{margin-top: 1%; @media screen and (max-width: 1000px) {margin-top: 85px;}}
