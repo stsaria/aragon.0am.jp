@@ -5,12 +5,12 @@
     font-style: normal;
 }
 
-main{color: whitesmoke;}
+main, footer{color: whitesmoke;}
 
 header {
     display: flex;
     color: black;
-    img{width: 7%;}
+    img{width: 4%;}
     right: 100%;
 }
 
