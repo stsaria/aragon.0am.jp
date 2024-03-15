@@ -9,6 +9,7 @@
                 $rows[] = $row;
             }
             if ($rows && $all == false){if (count($rows) >= 30){$rows = array_slice($rows, -30);}}
+            $rows = array_reverse($rows);
             if (!empty($rows)): ?>
                 <ul>
             <?php foreach ($rows as $row): ?>
