@@ -1,6 +1,6 @@
 <?php
     ob_start();
-    $language = explode("/", $_SERVER['REQUEST_URI'])[-2];
+    $language = explode("/", $_SERVER['REQUEST_URI'])[count(explode("/", $_SERVER['REQUEST_URI']))-2];
     if ($language == "ja"){date_default_timezone_set('Asia/Tokyo');}
     else{date_default_timezone_set('America/Los_Angeles');}
     $chat_file = "../data/chat-".$_GET['thread'].".csv";
