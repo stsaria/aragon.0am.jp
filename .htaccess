@@ -7,10 +7,12 @@ AddType application/x-httpd-php .php .html
 AddHandler application/x-httpd-php .php .html
 
 RewriteEngine on
+RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html 
 
+RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php
