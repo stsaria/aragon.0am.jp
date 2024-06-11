@@ -3,6 +3,8 @@ ErrorDocument 403 https://%{HTTP_HOST}/error/403.html
 ErrorDocument 404 https://%{HTTP_HOST}/error/404.html
 ErrorDocument 500 https://%{HTTP_HOST}/error/500.html
 
+Options -MultiViews
+
 AddType application/x-httpd-php .php .html
 AddHandler application/x-httpd-php .php .html
 
