@@ -11,7 +11,7 @@
     <body>
         <div class="bg">
         <?php include "../header.html" ?>
-        <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Aragon"); ?>
+        <?php include "../cgi-bin/emcapi.php"; $nationinfo = getNationInfo("Hispania"); ?>
         <script>
             function isSmartPhone() {
                 if (window.matchMedia && window.matchMedia('(max-device-width: 480px)').matches) {
@@ -26,9 +26,9 @@
                 <script>if(!isSmartPhone()){document.write("<div class=\"col\">");}</script>
                     <?php include "gallery.html" ?>
                 <script>if(!isSmartPhone()){document.write("</div><div class=\"col\">");}</script>
-                    <h2>Aragonのホームページにようこそ!</h2>
-                    <p>Aragonは<a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a>のヨーロッパにある、2022年11月に作成された国です。</p>
-                    <p>AragonのDiscordサーバーは<a href="https://discord.gg/WvC7SadC2Z">こちらです</a></p>
+                    <h2>Hispaniaのホームページにようこそ!</h2>
+                    <p>Hispaniaは<a href="https://earthmc.net" target="_blank" rel="noopener noreferrer">EarthMC</a>のヨーロッパにある、2022年11月に作成された国です。</p>
+                    <p>HispaniaのDiscordサーバーは<a href="https://discord.gg/WvC7SadC2Z">こちらです</a></p>
                     <p style="color: red;">私たちは、<?=implode("・",$nationinfo[2])?>に敵対しています</p>
                     <p>詳しい情報はニュースをご覧ください。</p>
                     <p>現在の人口 : <?=$nationinfo[0]?>人</p>
@@ -39,7 +39,7 @@
             <div style="text-align: center;">
                 <h3>あなたも入りませんか？</h3>
                 <pre>/t join Zaragoza</pre>
-                <h3>でAragonに参加しましょう！</h3>
+                <h3>でHispaniaに参加しましょう！</h3>
             </div>
             <hr>
             <h2>チャット</h2>

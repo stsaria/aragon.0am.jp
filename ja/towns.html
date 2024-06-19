@@ -26,7 +26,7 @@
                 </thead>
                 <?php
                     include "../cgi-bin/emcapi.php";
-                    $nationinfo = getNationInfo("Aragon");
+                    $nationinfo = getNationInfo("Hispania");
                     foreach($nationinfo[1] as $town){
                         $towninfo = getTownInfo($town);
                         echo "<tr><td>".ucfirst($town)."</td><td>".$towninfo[1]."</td><td>".$towninfo[0]."人</td>";
